@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const walletAddressSpan = document.getElementById("walletAddress");
   const walletBalanceSpan = document.getElementById("walletBalance");
   const inscriptionsList = document.getElementById("inscriptionsList");
+  const unisatPopup = document.getElementById("unisatPopup");
+  const closePopupBtn = document.getElementById("closePopupBtn");
 
   connectWalletBtn.addEventListener("click", async () => {
     try {
@@ -21,10 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
           inscriptionsList.appendChild(li);
         });
       } else {
-        console.log('UniSat Wallet is not installed.');
+        unisatPopup.style.display = 'flex';
       }
     } catch (error) {
       console.error('Error connecting to UniSat Wallet:', error);
     }
+  });
+
+  closePopupBtn.addEventListener("click", () => {
+    unisatPopup.style.display = 'none';
   });
 });

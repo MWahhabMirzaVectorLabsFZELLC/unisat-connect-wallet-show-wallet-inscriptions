@@ -4,6 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UniSat Wallet API Example</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Style for the popup */
+  #popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 9999;
+  }
+
+
+  /* .hidden{
+    display: none;
+  } */
+</style>
 </head>
 <body>
   <h1>UniSat Wallet API Example</h1>
@@ -13,51 +34,35 @@
     <p><strong>Balance:</strong> <span id="walletBalance"></span> satoshis</p>
     <h3>Inscriptions:</h3>
     <ul id="inscriptionsList"></ul>
+    <div id="noInscriptionsMessage" style="display: none;">Your account has no inscriptions!</div>
   </div>
 
- 
-
-    <div id="unisatPopup" class="popup">
-  <div class="popup-content">
-    <p>UniSat Wallet is not installed. <a href="https://unisat.io" target="_blank">Click here to install UniSat!</a></p>
-    <button id="closePopupBtn">Close</button>
-  </div>
 </div>
 
 
- <style>
-    .popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-content {
-  background: white;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.popup-content a {
-  color: blue;
-  text-decoration: underline;
-}
-
-.popup-content button {
-  margin-top: 10px;
-}
-
-  </style>
 
 
-  
+
+//new
+<div id="inputs" class="hidden">
+  <label for="address">Testnet Address:</label>
+  <input type="text" id="address" placeholder="Enter Testnet Address">
+  <label for="inscriptionId">Inscription ID:</label>
+  <input type="text" id="inscriptionId" placeholder="Enter Inscription ID">
+</div>
+<button onclick="sendTestnetInscription()">Send Testnet Inscription</button>
+
+
+
+
+
+
+  <!-- Popup for UniSat Wallet not installed -->
+  <div id="popup">
+    <p>UniSat Wallet is not installed! Please <a href="https://chromewebstore.google.com/detail/ppbibelpcjmhbdihakflkdcoccbgbkpo" target="_blank">install </a>UniSat Wallet extension to continue.</p>
+  </div>
+
+
 
   <script src="script.js"></script>
 </body>

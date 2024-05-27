@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function fetchInscriptionDetails(inscriptionId) {
     try {
-      const response = await fetch(`https://open-api-testnet.unisat.io/v1/indexer/inscription/info/${inscriptionId}`, {
+      const response = await fetch(`https://open-api.unisat.io/v1/indexer/inscription/info/${inscriptionId}`, {
         method: 'GET',
         headers: {
           'accept': 'application/json',
